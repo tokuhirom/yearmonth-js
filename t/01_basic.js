@@ -75,6 +75,13 @@ subtest('strftime', function () {
     is(ym('2011-11').strftime('%Y年%m月'), '2011年11月');
     is(ym('2011-01').strftime('%Y年%m月'), '2011年01月');
 });
+subtest('max', function () {
+    var max = YearMonth.max;
+    is(''+max(ym('2011-01'), ym('2011-02'), ym('2011-03')), '2011-03');
+    is(''+max(ym('2011-01'), ym('2011-02')), '2011-02');
+    is(''+max(ym('2011-02'), ym('2011-01')), '2011-02');
+    is(max(), undefined);
+});
 
 function ym(s) {
     var y = s.split('-')[0];

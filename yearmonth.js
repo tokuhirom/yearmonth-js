@@ -49,31 +49,55 @@
             y = a;
             x = b;
         }
-        while (YearMonth['>='](x, y)) {
+        while (ge(x, y)) {
             ret.push(y.clone());
             y.succ();
         }
         return ret;
     };
-    YearMonth['>'] = function (a, b) { // gt
+    function gt(a, b) { // gt
         if (a.year === b.year) {
             return a.month > b.month;
         } else {
             return a.year > b.year;
         }
-    };
-    YearMonth['>='] = function (a, b) {
+    }
+    YearMonth['>'] = gt;
+    YearMonth['gt'] = gt;
+
+    function ge(a, b) {
         if (a.year === b.year) {
             return a.month >= b.month;
         } else {
             return a.year  >= b.year;
         }
-    };
-    YearMonth['<'] = function (a, b) {
+    }
+    YearMonth['>='] = ge;
+    YearMonth['ge'] = ge;
+
+    function lt(a, b) { // <
         return !YearMonth['>='](a, b);
-    };
-    YearMonth['<='] = function (a, b) {
+    }
+    YearMonth['<']  = lt;
+    YearMonth['lt'] = lt;
+
+    function le(a, b) {
         return !YearMonth['>'](a, b);
+    }
+    YearMonth['<='] = le;
+    YearMonth['le'] = le;
+
+    YearMonth.max = function () {
+        if (arguments.length === 0) {
+            return undefined;
+        }
+        var ret = arguments[0];
+        for (var i=1, l=arguments.length; i<l; i++) {
+            if (lt(ret, arguments[i])) {
+                ret = arguments[i];
+            }
+        }
+        return ret;
     };
 
     Y.YearMonth = YearMonth;
