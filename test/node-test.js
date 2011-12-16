@@ -1,9 +1,9 @@
 var QUnit = require('./qunit').QUnit,
     qunitTap = require('qunit-tap').qunitTap,
-    sys = require('sys'),
+    util = require('util'),
     fs = require('fs');
 
-qunitTap(QUnit, sys.puts, {noPlan: true});
+qunitTap(QUnit, util.puts, {noPlan: true});
 
 QUnit.init();
 QUnit.config.updateRate = 0;

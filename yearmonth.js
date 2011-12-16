@@ -1,4 +1,6 @@
 (function () {
+    "use strict";
+
     var global = this;
     var Y;
     if (typeof exports !== 'undefined') {
