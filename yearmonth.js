@@ -42,13 +42,13 @@
         var x,
             y, // early
             ret = new Array();
-        if (YearMonth['>'](a, b)) {
-            y = b;
-            x = a;
+
+        if (gt(a, b)) {
+            y = b; x = a;
         } else {
-            y = a;
-            x = b;
+            y = a; x = b;
         }
+
         while (ge(x, y)) {
             ret.push(y.clone());
             y.succ();
