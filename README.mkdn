@@ -1,0 +1,6 @@
+yearmonth.js
+============
+
+The year-month object for javascript.
+
+This is very similar with date object, but it's only contains year and month.
